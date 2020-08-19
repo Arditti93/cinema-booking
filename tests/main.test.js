@@ -1,27 +1,27 @@
-const order = require("../src/index");
+const Order = require("../src/index");
 
 
 test('Your child ticket price will be £3', () => {
-  const ticket = new order ("James", 6, "no") 
-  expect(order.price).toBe("Your child ticket price will be £3");
+  const ticket = new Order ("James", 6, "no") 
+  expect(Order.price).toBe("Your child ticket price will be £3");
 
 });
 
 test('Your adult ticket price will be £10', () => {
-  const ticket = new order ("James", 36, "no") 
-  expect(order.price).toBe("Your adult ticket price will be £10");
+  const ticket = new Order ("James", 36, "no") 
+  expect(Order.price).toBe("Your adult ticket price will be £10");
 
 }); 
 
 test('Your student price will be £6', () => {
-  const ticket = new order ("James", 24, "yes") 
-  expect(order.price).toBe("Your student price will be £6");
+  const ticket = new Order ("James", 24, "yes") 
+  expect(Order.price).toBe("Your student price will be £6");
 
 }); 
 
 test('Your senior ticket price will be £5', () => {
-  const ticket = new order ("James", 66, "no") 
-  expect(order.price).toBe("Your senior ticket price will be £5");
+  const ticket = new Order ("James", 66, "no") 
+  expect(Order.price).toBe("Your senior ticket price will be £5");
 
 });
 

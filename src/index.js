@@ -42,7 +42,7 @@ let drink = [{
 let filmList = ["Goodfellas", "Boy in the striped pyjamas", "Hamelton", "Frozen", "Mickey Mouse"]
 
 
-class order {
+class Order {
     constructor(name, age, student, food, drink) {
         this.name = name; 
         this.age = age;
