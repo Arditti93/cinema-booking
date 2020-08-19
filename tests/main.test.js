@@ -3,25 +3,25 @@ const order = require("../src/index");
 
 test('Your child ticket price will be £3', () => {
   const ticket = new order ("James", 6, "no") 
-  expect(index.price).toBe("Your child ticket price will be £3");
+  expect(order.price).toBe("Your child ticket price will be £3");
 
 });
 
 test('Your adult ticket price will be £10', () => {
   const ticket = new order ("James", 36, "no") 
-  expect(index.price).toBe("Your adult ticket price will be £10");
+  expect(order.price).toBe("Your adult ticket price will be £10");
 
 }); 
 
 test('Your student price will be £6', () => {
   const ticket = new order ("James", 24, "yes") 
-  expect(index.price).toBe("Your student price will be £6");
+  expect(order.price).toBe("Your student price will be £6");
 
 }); 
 
 test('Your senior ticket price will be £5', () => {
   const ticket = new order ("James", 66, "no") 
-  expect(index.price).toBe("Your senior ticket price will be £5");
+  expect(order.price).toBe("Your senior ticket price will be £5");
 
 });
 
