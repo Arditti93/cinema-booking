@@ -1,4 +1,4 @@
-const index = require("../src/index");
+const order = require("../src/index");
 
 
 test('Your child ticket price will be £3', () => {
