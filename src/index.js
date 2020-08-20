@@ -2,41 +2,6 @@ let twoD = 200
 let threeD = 150
 let both = 300
 
-let food = [{
-    name: "Twix", 
-    price: 1.50,
-},
-{
-    name: "Carmac",
-    price: 1.50
-},
-{
-    name: "Wispa",
-    price: 1.00,
-},
-{
-    name: "Twirl",
-    price: 5.00
-}
-]
-
-let drink = [{
-    name: "Coke", 
-    price: 1.50,
-},
-{
-    name: "Sprite",
-    price: 1.50
-},
-{
-    name: "Water",
-    price: 1.00,
-},
-{
-    name: "Tango Ice Blast",
-    price: 5.00
-}
-]
 
 class Order {
     constructor(name, age, student, food, drink, Films) {
@@ -47,15 +12,15 @@ class Order {
         this.drink = drink;
         this.Films = Films;
     } 
-
-seats(seat) {
-    if(seat > 5){
-        console.log("Not enough remaining seats");
-    }else {
-        this.seat = seat;
-        console.log(this.seat);
+    seats(seat) {
+        if(seat > 5){
+            console.log("Not enough remaining seats");
+        }else {
+            this.seat = seat;
+            console.log(this.seat);
         }
     };
+
 Films() {
     if(this.Films === "twoD") {
         for (let a = 0; a <= 200; a++) {
@@ -70,6 +35,7 @@ Films() {
         return("This film is shown on 2D and 3D screen. Choice on you!")}
     }
 };
+
 price() {
     if (this.Films === "threeD") {
         return(`Your ticket price will be ${this.student} + £4`)
@@ -85,20 +51,26 @@ price() {
         }
     else if (this.student == "no" && this.age >= 65) { 
         return("Your senior ticket price will be £5")
+
         }
         else {
             return("Invaild age")
         };
     } 
 }
+
+    
 const finalPrice = () => { 
     let total = 0;
     for (let j = 0; j < 5; j++) {
-        total += price() + (food.cost()) + refreshmentsDrink();
+        total += price() + (food.cost()) + (drink.cost());
     }
     return total; 
 }
+
 for (const item of food) {
-    console.log (`You are buying : ${food.name} This cost: ${food.price}`);
+    console.log (`You are buying : ${item.name} This cost : ${item.cost}`);
 }
-module.exports = Order;
+
+module.exports = order;
+
