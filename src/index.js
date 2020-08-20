@@ -2,6 +2,8 @@ let twoD = 200
 let threeD = 150
 let both = 300
 
+
+
 let filmList = [{
     name: "Goodfellas", 
     screen: "twoD",
@@ -58,6 +60,7 @@ let drink = [{
 ]
 
 
+
 class Order {
     constructor(name, age, student, food, drink, Films, ticketsPurchased) {
         this.name = name; 
@@ -68,15 +71,15 @@ class Order {
         this.Films = Films;
         this.ticketsPurchased = ticketsPurchased;
     } 
-
-seats(seat) {
-    if(seat > 5){
-        console.log("Not enough remaining seats");
-    }else {
-        this.seat = seat;
-        console.log(this.seat);
+    seats(seat) {
+        if(seat > 5){
+            console.log("Not enough remaining seats");
+        }else {
+            this.seat = seat;
+            console.log(this.seat);
         }
     };
+
 
 
     numberOfSeatsLeft(){
@@ -100,6 +103,7 @@ seats(seat) {
         }
     }
 
+
 Films() {
     if(this.Films === "twoD") {
         for (let a = 0; a <= 200; a++) {
@@ -114,6 +118,7 @@ Films() {
         return("This film is shown on 2D and 3D screen. Choice on you!")}
     }
 };
+
 price() {
     if (this.Films === "threeD") {
         return(`Your ticket price will be ${this.student} + £4`)
@@ -130,20 +135,30 @@ price() {
         }
     else if (this.student == "no" && this.age >= 65) { 
         return("Your senior ticket price will be £5")
+
         }
         else {
             return("Invaild age")
         };
     } 
 }
+
+    
 const finalPrice = () => { 
     let total = 0;
     for (let j = 0; j < 5; j++) {
-        total += price() + (food.cost()) + refreshmentsDrink();
+        total += price() + (food.cost()) + (drink.cost());
     }
     return total; 
 }
+
+
+
 for (const item of food) {
-    console.log (`You are buying : ${food.name} This cost: ${food.price}`);
+    console.log (`You are buying : ${item.name} This cost : ${item.cost}`);
 }
+
+
+
 module.exports = Order;
+
