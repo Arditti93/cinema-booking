@@ -3,14 +3,73 @@ let threeD = 150
 let both = 300
 
 
+
+let filmList = [{
+    name: "Goodfellas", 
+    screen: "twoD",
+},
+{
+    name: "Boy in the stripy pyjamas",
+    screen: "twoD",
+},
+{
+    name: "hamelot",
+    screen: "both",
+},
+{
+    name: "Tango Ice Blast",
+    screen: "threeD",
+}
+]
+
+
+let food = [{
+    name: "Twix", 
+    price: 1.50,
+},
+{
+    name: "Carmac",
+    price: 1.50
+},
+{
+    name: "Wispa",
+    price: 1.00,
+},
+{
+    name: "Twirl",
+    price: 5.00 
+}
+]
+
+let drink = [{
+    name: "Coke", 
+    price: 1.50,
+},
+{
+    name: "Sprite",
+    price: 1.50
+},
+{
+    name: "Water",
+    price: 1.00,
+},
+{
+    name: "Tango Ice Blast",
+    price: 5.00
+}
+]
+
+
+
 class Order {
-    constructor(name, age, student, food, drink, Films) {
+    constructor(name, age, student, food, drink, Films, ticketsPurchased) {
         this.name = name; 
         this.age = age;
         this.student = student
         this.food = food;
         this.drink = drink;
         this.Films = Films;
+        this.ticketsPurchased = ticketsPurchased;
     } 
     seats(seat) {
         if(seat > 5){
@@ -20,6 +79,30 @@ class Order {
             console.log(this.seat);
         }
     };
+
+
+
+    numberOfSeatsLeft(){
+      let screenOneSeats = 200
+      let screenTwoSeats = 150
+      let screenThreeSeats = 300
+        if(this.ticketsPurchased<=5 && (screenOneSeats >=5 || screenThreeSeats >=5) && this.Films == "twoD"){
+            console.log(`You are purchasing ${this.ticketsPurchased} tickets. Seats available in screen 1: ${screenOneSeats}. Seats available in screen 3: ${screenThreeSeats}`)
+            screenOneSeats -= this.ticketsPurchased 
+            screenThreeSeats -= this.ticketsPurchased
+            return (`After your purchase, seats now available in screen 1: ${screenOneSeats}. Seats now available in screen 3: ${screenThreeSeats}`)
+        }
+        else if (this.ticketsPurchased<=5 && (screenTwoSeats >=5 || screenThreeSeats >=5) && this.Films == "threeD"){
+            console.log(`You are purchasing ${this.ticketsPurchased} tickets. Seats available in screen 2: ${screenTwoSeats}. Seats available in screen three: ${screenThreeSeats}`)
+            screenTwoSeats -= this.ticketsPurchased 
+            screenThreeSeats -= this.ticketsPurchased
+            return (`After your purchase, seats now available in screen 2: ${screenTwoSeats} seats now available in screen 3: ${screenThreeSeats}`)
+        }
+        else {
+            return ("No seats available")
+        }
+    }
+
 
 Films() {
     if(this.Films === "twoD") {
@@ -39,6 +122,7 @@ Films() {
 price() {
     if (this.Films === "threeD") {
         return(`Your ticket price will be ${this.student} + £4`)
+
         }
     if(this.student == "no" && this.age <= 7) {
         return("Your child ticket price will be £3")
@@ -68,19 +152,13 @@ const finalPrice = () => {
     return total; 
 }
 
-/* finalPrice add() {
-  var counter = 0;
-  counter += 1;
-}
-add();
-add();
-add();
-add();
-add(); */
+
 
 for (const item of food) {
     console.log (`You are buying : ${item.name} This cost : ${item.cost}`);
 }
 
-module.exports = order;
+
+
+module.exports = Order;
 
