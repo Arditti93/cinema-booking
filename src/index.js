@@ -68,6 +68,16 @@ const finalPrice = () => {
     return total; 
 }
 
+/* finalPrice add() {
+  var counter = 0;
+  counter += 1;
+}
+add();
+add();
+add();
+add();
+add(); */
+
 for (const item of food) {
     console.log (`You are buying : ${item.name} This cost : ${item.cost}`);
 }
